@@ -1,0 +1,20 @@
+DAY-01 LEETCODE-01 TWO SUM
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& a, int target){
+        
+        map<int,int>mpp;
+        int n=a.size();
+        for(int i=0;i<n;i++){
+            int har=a[i];
+            int more= target-har;
+            if(mpp.find(more)!=mpp.end()){
+                return {mpp[more],i};
+            }
+            mpp[har]=i;
+        }
+        return {};
+        
+    }
+};
