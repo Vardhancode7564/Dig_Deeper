@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        // sort(s.begin(),s.end());
+        // sort(t.begin(),t.end());
+        // if(s==t){
+        //     return true;
+        // }
+        // return false;
+
+        if(s.length()!=t.length()) return false;
+
+        unordered_map<char,int>mpp;
+        for(char c:s) mpp[c]++;
+        for(char c:t){
+            if(--mpp[c] < 0) return false;
+        }
+
+        return true;
+    }
+};
