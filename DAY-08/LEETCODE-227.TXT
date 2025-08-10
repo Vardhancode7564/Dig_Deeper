@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int calculate(string s) {
+    stack<int>st;
+    int val=0;
+    char op='+';
+    for (int i=0; i<s.size();i++) {
+        char c=s[i];
+        if(isdigit(c)) {
+            val=val*10+(c-'0');
+        }
+        if ((!isdigit(c)&&c!=' ')||i==s.size() - 1) {
+            if(op=='+') st.push(val);
+            else if(op=='-') st.push(-val);
+            else if(op=='*'){
+                int temp=st.top(); st.pop();
+                st.push(temp*val);
+            } else if(op=='/') {
+                int temp=st.top(); st.pop();
+                st.push(temp/val);
+            }
+            op=c;
+            val=0;
+        }
+    }
+    int result=0;
+    while(!st.empty()){
+        result+=st.top();
+        st.pop();
+    }
+    return result;
+    }
+};
