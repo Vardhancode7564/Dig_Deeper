@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n<=2) return n; //base case
+        int har1=2; 
+        int har2=1;
+        int var=0;
+        for(int i=3;i<=n;i++) {
+            var=har1+har2;
+            har2=har1;
+            har1=var;
+        }
+        return var;
+    }
+};
