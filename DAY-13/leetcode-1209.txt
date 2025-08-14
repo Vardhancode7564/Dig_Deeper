@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string removeDuplicates(string s, int k) {
+        string har;
+        vector<int>var;
+
+        for(char c:s) {
+            har.push_back(c);
+            if(!var.empty()&&har[har.size()-1]==har[har.size()-2]){
+                var.back()++;
+            }else{
+                var.push_back(1);
+            }
+
+            if (var.back()==k) {
+                har.erase(har.end()-k,har.end());
+                var.pop_back();
+            }
+        }
+        return har;
+    }
+};

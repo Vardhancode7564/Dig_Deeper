@@ -1,0 +1,31 @@
+class Solution {
+public:
+    string makeGood(string s) {
+        // int n=s.length();
+        // vector<char>arr(n); 
+        // int top=-1;     
+        // for(char c:s) {
+        //     if(top>=0&&tolower(arr[top])==tolower(c)&&arr[top]!=c){
+        //          top--;
+        //     }else{
+        //         arr[++top]=c;
+        //     }
+        // }
+        // string har="";
+        // for(int j=0;j<=top;j++){
+        //         har+=arr[j];
+        // }
+        // return har;
+
+
+        string har;
+        for(char c:s){
+            if(!har.empty()&& abs(har.back()-c)==32){
+                har.pop_back();
+            }else{
+                har.push_back(c);
+            }
+        }
+        return har;
+    }
+};
